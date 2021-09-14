@@ -1,35 +1,14 @@
 <!doctype html>
 
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <title>Dashboard: AclList</title>
-    <meta name="description" content="A simple HTML5 Template for new projects.">
-    <meta name="author" content="SitePoint">
-
-    <meta property="og:title" content="DashBoard mainPage">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="#">
-    <meta property="og:description" content="A simple HTML5 Template for new projects.">
-    <meta property="og:image" content="image.png">
-
-    <link rel="icon" href="/favicon.ico">
-    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
-    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
-
-
-</head>
+<head th:replace="fragments/head.html::head"></head>
 
 <body>
-
+<header th:replace="fragments/top_nav.html :: navbar"></header>
 <div id="wrap" class="container-fluid" style="padding:100px;">
     <div class="row">
-        <div class="col-lg-1 col-md-2"><input class="form-control" id="input_id" type="text" placeholder="id"></div>
-        <div class="col-lg-1 col-md-2"><input class="form-control" id="input_code" type="text" placeholder="code"></div>
+        <div class="col-1 col-lg-1 col-md-2"><input class="form-control" id="input_id" type="text" placeholder="id"></div>
+        <div class="col-1 col-lg-1 col-md-2"><input class="form-control" id="input_code" type="text" placeholder="code"></div>
         <div class="col-xs-4 col-lg-2 col-md-2">
             <select name="from[]" id="search"  th:field="${options}" class="form-control" size="20" multiple="multiple">
                 <option value="1">Item 1</option>
@@ -91,14 +70,17 @@
             </select>
         </div>
 
-        <div class="col-xs-1" style="width:3%">
-            <button type="button" id="search_rightAll" class="btn btn-block"><i class="glyphicon glyphicon-forward"></i>
+        <div class="col-xs-1" style="width:3%;padding:5px">
+            <button type="button" id="search_rightAll" class="btn btn-outline-warning">
+                <i class="bi bi-chevron-double-right"></i>
             </button>
-            <button type="button" id="search_rightSelected" class="btn btn-block"><i
-                    class="glyphicon glyphicon-chevron-right"></i></button>
-            <button type="button" id="search_leftSelected" class="btn btn-block"><i
-                    class="glyphicon glyphicon-chevron-left"></i></button>
-            <button type="button" id="search_leftAll" class="btn btn-block"><i class="glyphicon glyphicon-backward"></i>
+            <button type="button" id="search_rightSelected" class="btn btn-outline-dark"><i class="bi bi-caret-right"></i></button>
+            <button type="button" id="search_leftSelected" class="btn btn-outline-dark">
+                <i class="bi bi-caret-left"></i>
+
+            </button>
+            <button type="button" id="search_leftAll" class="btn btn-outline-success">
+                <i class="bi bi-chevron-double-left"></i>
             </button>
         </div>
 
@@ -113,11 +95,8 @@
     </div>
 </div>
 
-<!-- your content here... -->
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
-<script src="/js/multiselect.js?1=1" crossorigin="anonymous"></script>
-<script src="/js/actions.js?1=1" crossorigin="anonymous"></script>
+<footer th:replace="fragments/footer.html :: footer"></footer>
+
 
 </body>
 </html>

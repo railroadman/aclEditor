@@ -46,4 +46,23 @@ jQuery(document).ready(function($) {
 
     })
 
+
 });
+
+$("#do_create_srwv").on("click",function(e){
+    e.preventDefault();
+    var code = $("#code").val();
+    var description = $("#description").val();
+
+
+    console.log(code);
+
+
+
+    return false; //don't submit
+});
+
+
+
+
+

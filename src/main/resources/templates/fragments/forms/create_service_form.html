@@ -1,0 +1,27 @@
+<div xmlns:th="">
+<form th:fragment="create_service_form"  th:object="${testDto}" method="post" action="/createService" name="frm_create_Service"  id="create_service_frm" >
+    <div class="form-group">
+        <label for="code">Code</label>
+        <input type="text" th:field="*{code}" class="form-control" id="code" placeholder="Code">
+    </div>
+
+    <div class="form-group">
+        <label for="description">Description</label>
+        <textarea class="form-control" th:field="*{description}" id="description" rows="3"></textarea>
+    </div>
+
+    <div class="form-group">
+        <label for="description">login</label>
+        <input type="text" class="form-control" id="login" th:field="*{login}" placeholder="login">
+    </div>
+
+    <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" class="form-control" id="password" th:field="*{password}" placeholder="password">
+    </div>
+    <div class="form-group">
+        <button type="submit" id="do_create_srv" class="btn btn-primary mb-2">Create Service</button>
+    </div>
+</form>
+
+</div>

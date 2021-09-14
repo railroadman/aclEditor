@@ -1,9 +1,9 @@
 package com.acleditor.aclist.controller;
 
+import com.acleditor.aclist.dto.TestDto;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
 import java.util.List;
@@ -25,5 +25,21 @@ public class DashBoardController {
         model.addAttribute("options",options);
 
         return "index";
+    }
+
+    @GetMapping("/createService")
+    public String createService(Model model){
+        model.addAttribute("testDto", new TestDto());
+        //model.addAttribute();
+         return "createService";
+    }
+
+    @PostMapping("/createService")
+    public String doCreateService(@ModelAttribute TestDto testDto, Model model){
+        System.out.println(testDto);
+        if (testDto.getCode()!=null && !testDto.getCode().isBlank()) {
+            model.addAttribute("success", true);
+        }
+        return "createService";
     }
 }

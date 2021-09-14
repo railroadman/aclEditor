@@ -1,0 +1,29 @@
+<!doctype html>
+
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head th:replace="fragments/head.html :: head"></head>
+<body>
+<header th:replace="fragments/top_nav.html :: navbar"></header>
+<div id="wrap" class="container-fluid" style="padding:10px;">
+    <div style="margin-left:3%">
+        <div class="bd-callout bd-callout-info">
+            <h4 id="dealing-with-specificity">Создать новый сервис</h4>
+            <p>Создаем новый сервис
+            </p></div>
+    </div>
+    <div style="margin:auto" class="col-md-8" th:if="${success == true}">
+        <div class="alert alert-primary" role="alert">
+            <h3>Service Created</h3> <br>
+            <a href="/">back</a> | <a href="/createService">Создать еще</a>
+        </div>
+    </div>
+
+    <div th:unless="${success == true}" class="col-md-6 offset-1">
+        <form th:replace="fragments/forms/create_service_form.html :: create_service_form"></form>
+    </div>
+</div>
+
+
+<footer th:replace="fragments/footer.html :: footer"></footer>
+</body>
+</html>
